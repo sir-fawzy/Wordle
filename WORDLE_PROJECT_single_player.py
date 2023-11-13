@@ -1,3 +1,10 @@
+class bcolors:
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    
 def main():
     while True:
         
@@ -29,12 +36,12 @@ def main():
             #pragma warning disable C0200  
             for i in range(len(user_guess)):
                 if user_guess[i] == right_word[i]:
-                    print(f"{user_guess[i]} - green")
+                    print(f"{bcolors.BOLD}{bcolors.GREEN}{user_guess[i]}{bcolors.ENDC}")
                     correct.append("yes")
                 elif user_guess[i] in right_word:
-                    print(f"{user_guess[i]} - Yellow")
+                    print(f"{bcolors.BOLD}{bcolors.YELLOW}{user_guess[i]}{bcolors.ENDC}")
                 else:
-                    print(f"{user_guess[i]} - red")
+                    print(f"{bcolors.BOLD}{bcolors.RED}{user_guess[i]}{bcolors.ENDC}")
             
             if len(correct) == len(right_word):
                 break
@@ -51,7 +58,7 @@ def main():
             else:
                 print(f"You got the correct word with {attempts_count} trials")
         play = input("Do you want to play another round?(y/n) ")
-        if play.lower() == "y":
+        if play.strip().lower() == "y":
             continue
         else:
             break
