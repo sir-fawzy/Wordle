@@ -20,7 +20,7 @@ def main():
         elif difficulty_selection.group(1).lower() == "medium":
             attempts = 4
         else:
-            attempts = 6
+            attempts = int(input("How many attempt do you want for this challenge? "))
         
         while attempts_count <= attempts:
             user_guess = input(f"You have {attempts+1-attempts_count} attempts left.\nEnter a 5 letter word? ")
